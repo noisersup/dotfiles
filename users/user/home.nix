@@ -23,11 +23,8 @@
     enable=true;
     extraConfig = {
         user.useConfigOnly =true;
-        user.work.name = "noisersup";
-        user.work.email= "patryk@kwiatek.xyz";
-        
-        user.personal.name = "noisersup";
-        user.personal.email= "patryk@kwiatek.xyz";
+        user.name = "noisersup";
+        user.email= "patryk@kwiatek.xyz";
     };
   };
 
