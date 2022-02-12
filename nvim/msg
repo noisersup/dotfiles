@@ -1,0 +1,24 @@
+I often change my environment so i made nix-shell setup with neovim configuration and placed it in tarball on remote server so i can easly use one command and get my nvim on every machine with nix
+
+but i'm tired of creating nix-shell on my nixos system every time i want to use neovim.
+
+Is there any way to import it from configuration.nix?
+I know it creates shell with `mkShell` so it's logically impossible to link it directly to nixos configuration
+
+for now my shell nix file looks something like that:
+
+```nix
+let 
+  customNvim = pkgs.neovim.override {
+    ...
+  };
+in
+pkgs.mkShell{
+  buildInputs =[ customNvim ... ];
+}
+``` 
+
+I thought about seperate "let" section to another nix file and import it from shell nix file 
+so i could import only customNvim from nixos configuration.nix file without mkShell section
+
+but i feel stupid with that and don't know how to do it correctly
