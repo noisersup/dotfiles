@@ -42,6 +42,8 @@
     signal-desktop
     lf
     mupdf
+
+    mpv youtube-dl
   ];
   #TODO: redshift-gammastep
 }
