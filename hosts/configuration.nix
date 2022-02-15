@@ -132,6 +132,8 @@ in {
     #neovim
     wget feh
 
+    gnupg pinentry
+
     lukesmithxyz-st
     rofi
     oh-my-zsh
@@ -150,6 +152,15 @@ in {
     openssh.enable = true;
     sshd.enable = true;
     onedrive.enable = true;
+    pcscd.enable = true;
+  };
+
+
+  #GPG
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+    pinentryFlavor = "curses";
   };
 
   #minecraft server
