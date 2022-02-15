@@ -83,7 +83,6 @@ in {
   services.xserver = {
     enable = true;
     layout = "pl";
-    xkbOptions = "eurosign:e";
     videoDrivers = [ "nvidia" ];
 
     displayManager = {
