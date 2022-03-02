@@ -14,6 +14,19 @@ let
     sha256 = "av6laQezAOrBt6P+F2eHWFqAnTEENfDrvzEfhn2dDNY=";
   };
 
+  bling = pkgs.fetchFromGitHub {
+    owner = "BlingCorp";
+    repo = "bling";
+    rev = "718ac6da7a9a6a61b17bef63316ce6978adda318";
+    sha256 = "uA2/6k9IeM2l5g0dN9xGxKBuzgcsm2FECxPn/1lfa/g=";
+  };
+
+  awesome-wm-widgets = pkgs.fetchFromGitHub {
+    owner = "streetturtle";
+    repo = "awesome-wm-widgets";
+    rev = "b8e3a861f4829b2c3820e9a40294a3d9125fbf23";
+    sha256 = "uA2/6k9IeM2l5g0dN9xGxKBuzgcsm2FECxPn/1lfa/g=";
+  };
 
   manifesto = builtins.readFile (pkgs.fetchFromGitHub {
     owner = "Existential-nonce";
@@ -126,6 +139,9 @@ in {
       source = ../../awesome;
       recursive = true;
     };
+
+    ".config/awesome/bling".source = bling;
+    ".config/awesome/awesome-wm-widgets".source = awesome-wm-widgets;
 
 
     # discord ignore version
