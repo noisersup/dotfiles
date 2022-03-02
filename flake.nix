@@ -45,6 +45,7 @@
 
         modules = [
           ./hosts/configuration.nix
+          ./modules/laptop/default.nix
         ];
       };
     };
