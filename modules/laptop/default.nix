@@ -1,12 +1,12 @@
 { config, pkgs, ... }:
 {
-  imports =
-    [
-      <nixos-hardware/lenovo/thinkpad/x250>
-    ];
+  imports = [
+    "./hardware-configuration.nix"
+  ];
 
   networking.hostId = "46d47539";
   networking.hostName = "nix250";
+  networking.networkmanager.enable = true;
 
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;

@@ -5,9 +5,10 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nixos-hardware.url = github:NixOS/nixos-hardware/master;
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: 
+  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }: 
   let
     system = "x86_64-linux";
 
@@ -45,6 +46,7 @@
 
         modules = [
           ./hosts/configuration.nix
+	      nixos-hardware.nixosModules.lenovo-thinkpad-x250
           ./modules/laptop/default.nix
         ];
       };

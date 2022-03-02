@@ -104,30 +104,32 @@ in {
     mpv youtube-dl
 
     kubectl
-    factorio
     pure-prompt
     thefuck
+
+    jq # json prettier
   ];
   #TODO: redshift-gammastep
 
   programs.zsh = {
     enable = true;
-
     autocd = true;
-
     initExtra = ''
-      ZSH_AUTOSUGGEST_USE_ASYNC=1
+      set ZSH_AUTOSUGGEST_USE_ASYNC
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
       autoload -U promptinit; promptinit
       prompt pure
     '';
+    history = {
+        size = 20000;
+    };
     enableAutosuggestions = true;
     enableSyntaxHighlighting = true;
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "emoji" "emoji-clock" "kubectl" "docker" "sudo" ];
+      plugins = [ "git" "emoji" "emoji-clock" "kubectl" "docker" "sudo" "history" /*"fzf"*/];
     };
   };
 
