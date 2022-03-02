@@ -5,7 +5,6 @@ let
 in {
   imports =
     [
-      ./hardware-configuration.nix
     ];
 
   nix = {
