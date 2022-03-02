@@ -24,12 +24,11 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/391E-225C";
+    { device = "/dev/disk/by-uuid/8861-808C";
       fsType = "vfat";
     };
 
   swapDevices = [ ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
-  hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }

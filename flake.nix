@@ -36,7 +36,15 @@
 
         modules = [
           ./hosts/configuration.nix
-#          ./modules/games
+          ./modules/nixpc/default.nix
+          ./modules/games
+        ];
+      };
+      nix250 = lib.nixosSystem {
+        inherit system;
+
+        modules = [
+          ./hosts/configuration.nix
         ];
       };
     };

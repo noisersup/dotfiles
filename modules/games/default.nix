@@ -1,10 +1,11 @@
 { config, pkgs, ... }:
 {
   programs.steam.enable = true;
-  environment.systemPackages = with pkgs; [
-    steam
-    steam-run
-    minecraft
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-runtime"
   ];
+
 }
 

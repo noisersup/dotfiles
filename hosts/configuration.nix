@@ -6,19 +6,7 @@ in {
   imports =
     [
       ./hardware-configuration.nix
-      #../modules/minecraftserver/default.nix
     ];
-
-# LEDUCHONSKYYYYY
-  programs.steam.enable = true;
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-runtime"
-  ];
-
-
-
 
   nix = {
 	package = pkgs.nixUnstable;
@@ -39,51 +27,19 @@ in {
   #boot.loader.systemd-boot.enable = true;
   #boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.timeout = 3;
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    efiSupport = true;
-    device = "nodev";
-    useOSProber = true;
-    efiInstallAsRemovable = true;
-    default = "1";
-
-    extraEntries = ''
-      menuentry "Windows" {
-          insmod part_gpt
-          insmod fat
-          insmod search_fs_uuid
-          insmod chain
-          search --fs-uuid --set=root 391E-225C
-          chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-      }
-    '';
-  };
-  time.hardwareClockInLocalTime = true;
-
   boot.kernelPackages = pkgs.linuxPackages_latest;
-
-  networking.hostId = "d5b2cfa0";
-  networking.hostName = "nixpc";
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
-  networking.interfaces.eno1.useDHCP = true;
-
 
   time.timeZone = "Europe/Warsaw";
-
-
-  
 
   # Enable the X11 windowing system.
   services.xserver = {
     enable = true;
     layout = "pl";
-    videoDrivers = [ "nvidia" ];
 
     displayManager = {
       sddm.enable = true;
@@ -118,17 +74,16 @@ in {
     isNormalUser = true;
     extraGroups = [ "wheel" "video" "libvirtd" "usb" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
+    initialPassword = "leduchosky";
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     ( import ../nvim/nvim.nix {pkgs=pkgs;} )
     git go gopls fd tree-sitter rnix-lsp sumneko-lua-language-server
     nodePackages.vscode-langservers-extracted nixpkgs-fmt lua
     nodePackages.vue-language-server
     ripgrep xclip gcc 
-    #neovim
+
     wget feh
 
     gnupg pinentry
@@ -162,7 +117,6 @@ in {
     pinentryFlavor = "curses";
   };
 
-  #minecraft server
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ 22 ];
   # networking.firewall.allowedUDPPorts = [ ... ];
