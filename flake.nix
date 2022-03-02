@@ -37,6 +37,7 @@
 
         modules = [
           ./hosts/configuration.nix
+          ./modules/nixpc/hardware-configuration.nix
           ./modules/nixpc/default.nix
           ./modules/games
         ];
