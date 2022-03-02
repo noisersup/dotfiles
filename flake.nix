@@ -46,6 +46,7 @@
 
         modules = [
           ./hosts/configuration.nix
+          ./modules/laptop/hardware-configuration.nix
 	      nixos-hardware.nixosModules.lenovo-thinkpad-x250
           ./modules/laptop/default.nix
         ];

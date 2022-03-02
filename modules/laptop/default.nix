@@ -1,8 +1,5 @@
 { config, pkgs, ... }:
 {
-  imports = [
-    "./hardware-configuration.nix"
-  ];
 
   networking.hostId = "46d47539";
   networking.hostName = "nix250";
