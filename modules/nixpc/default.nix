@@ -10,5 +10,7 @@
 
   networking.interfaces.eno1.useDHCP = true;
 
+  hardware.cpu.intel.updateMicrocode = true;
+
   services.xserver.videoDrivers = ["nvidia"];
 }

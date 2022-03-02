@@ -91,13 +91,43 @@ in {
     mpv youtube-dl
 
     kubectl
-    hello
     factorio
+    pure-prompt
+    thefuck
   ];
   #TODO: redshift-gammastep
 
+  programs.zsh = {
+    enable = true;
+
+    autocd = true;
+
+    initExtra = ''
+      ZSH_AUTOSUGGEST_USE_ASYNC=1
+      ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+
+      autoload -U promptinit; promptinit
+      prompt pure
+    '';
+    enableAutosuggestions = true;
+    enableSyntaxHighlighting = true;
+
+    oh-my-zsh = {
+      enable = true;
+      plugins = [ "git" "emoji" "emoji-clock" "kubectl" "docker" "sudo" ];
+    };
+  };
+
 
   home.file = {
+    ## some old configs here vvv
+    # awesomewm (based on https://github.com/WillPower3309/awesome-dotfiles)
+    ".config/awesome"= {
+      source = ../../awesome;
+      recursive = true;
+    };
+
+
     # discord ignore version
     "industrial-society-and-its-future.tex".text = manifesto;
     ".config/discordcanary/settings.json".text = ''

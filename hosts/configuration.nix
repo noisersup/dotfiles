@@ -91,6 +91,7 @@ in {
     lukesmithxyz-st
     rofi
     oh-my-zsh
+    pure-prompt
     mono
   ];
 
