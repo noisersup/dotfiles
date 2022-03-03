@@ -88,6 +88,8 @@ in {
     discord-canary
     flameshot
     pavucontrol pulsemixer
+    
+    onlyoffice-bin # office tool
 
     keepassxc
 
@@ -104,6 +106,8 @@ in {
     mpv youtube-dl
 
     kubectl
+    postman
+
     pure-prompt
     thefuck
 
