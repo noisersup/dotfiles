@@ -19,8 +19,19 @@
 
     lib = nixpkgs.lib;
   in {
-      homeManagerConfigurations = {
-          user = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations = {
+          "user@nixpc" = home-manager.lib.homeManagerConfiguration {
+            inherit system pkgs;
+            username = "user";
+            homeDirectory = "/home/user";
+            configuration = {
+                imports = [
+                    ./users/user/home.nix
+                    ./modules/home/minecraft/minecraft.nix
+                ];
+            };
+          };
+          "user@nix250" = home-manager.lib.homeManagerConfiguration {
             inherit system pkgs;
             username = "user";
             homeDirectory = "/home/user";
