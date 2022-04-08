@@ -111,6 +111,11 @@ in {
     pure-prompt
     thefuck
 
+    lsof
+
+    ansible
+    vagrant
+
     jq # json prettier
   ];
   #TODO: redshift-gammastep
@@ -122,8 +127,11 @@ in {
       set ZSH_AUTOSUGGEST_USE_ASYNC
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 
+      EDITOR=nvim
+
       autoload -U promptinit; promptinit
       prompt pure
+      PATH=~/.npm-global/bin:$PATH
     '';
     history = {
         size = 20000;

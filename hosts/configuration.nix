@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-govim, ... }:
 
 let
   unstable = import <nixos-unstable> {};
@@ -68,19 +68,24 @@ in {
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  boot.extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "libvirtd" "usb" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "libvirtd" "usb" "docker" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     initialPassword = "leduchosky";
   };
 
   environment.systemPackages = with pkgs; [
-    ( import ../nvim/nvim.nix {pkgs=pkgs;} )
+    ( import ../nvim/nvim.nix {pkgs=pkgs-govim;} )
     git go gopls fd tree-sitter rnix-lsp sumneko-lua-language-server
     nodePackages.vscode-langservers-extracted nixpkgs-fmt lua
     nodePackages.vue-language-server
+    nodePackages.typescript-language-server
+    nodePackages.typescript
+    nodejs
     ripgrep xclip gcc 
 
     wget feh
@@ -92,12 +97,19 @@ in {
     oh-my-zsh
     pure-prompt
     mono
+
+    xboxdrv
+    linuxKernel.packages.linux_zen.xpadneo
+    libnotify
   ];
 
   
   fonts.fonts = with pkgs; [
     nerdfonts
     jetbrains-mono
+
+    helvetica-neue-lt-std
+    times-newer-roman
   ];
 
 
@@ -107,6 +119,12 @@ in {
     sshd.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
+  };
+hardware.opengl.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "zfs";
   };
 
 
@@ -118,7 +136,7 @@ in {
   };
 
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ 22 ];
+  networking.firewall.allowedTCPPorts = [ ];
   # networking.firewall.allowedUDPPorts = [ ... ];
 
   system.stateVersion = "21.11";

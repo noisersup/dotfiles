@@ -5,7 +5,9 @@ require'lspconfig'.gopls.setup{}
 
 require'lspconfig'.vuels.setup{}
 
--- require'lspconfig'.tsserver.setup{} TODO: Fix tsserver version bug
+require'lspconfig'.tsserver.setup{}
+
+require'lspconfig'.ansiblels.setup{}
 
 vim.o.completeopt = "menuone,noselect"
 

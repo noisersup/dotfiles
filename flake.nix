@@ -3,14 +3,21 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
+    nixpkgs-govim.url = "github:NixOS/nixpkgs?rev=aaa77bb67d8d96427e963107f4ddc50b7bb1d272";
+    nix.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = github:NixOS/nixos-hardware/master;
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-hardware, ... }: 
+  outputs = { self, nixpkgs, nixpkgs-govim, home-manager, nixos-hardware, ... }: 
   let
     system = "x86_64-linux";
+
+    pkgs-govim = import nixpkgs-govim {
+      inherit system;
+      config = { allowUnfree = true; };
+    };
 
     pkgs = import nixpkgs {
       inherit system;
@@ -44,13 +51,16 @@
       };
     nixosConfigurations = {
       nixpc = lib.nixosSystem {
-        inherit system;
-
+        specialArgs  = {inherit pkgs-govim;};
+        inherit system pkgs ;
+        
         modules = [
           ./hosts/configuration.nix
           ./modules/nixpc/hardware-configuration.nix
           ./modules/nixpc/default.nix
+          ./modules/k3s/default.nix
           ./modules/games
+          ./modules/vm
         ];
       };
       nix250 = lib.nixosSystem {

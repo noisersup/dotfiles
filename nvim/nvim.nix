@@ -88,8 +88,6 @@ pkgs.neovim.override {
               nvim-ts-autotag
               nvim-autopairs
 
-
-
               dashboard-nvim
 
             ];
