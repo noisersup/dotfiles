@@ -124,6 +124,8 @@ in {
     ansible
     vagrant
 
+    python38Packages.virtualenv
+
     jq # json prettier
   ];
   #TODO: redshift-gammastep
