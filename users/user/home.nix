@@ -50,7 +50,15 @@ in {
   };
 
   # Mail configuration
-  programs.neomutt.enable = true;
+  programs.neomutt= {
+    enable = true;
+    vimKeys = true;
+
+    extraConfig = "
+        #### Colors, Symbols and Formatting
+        source ~/.config/neomutt/styles.muttrc
+    ";
+  };
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
   programs.notmuch = {
@@ -156,6 +164,8 @@ in {
 
     ".config/awesome/bling".source = bling;
     ".config/awesome/awesome-wm-widgets".source = awesome-wm-widgets;
+
+    "~/.config/neomutt/styles.muttrc".source = ../../neomutt/styles.muttrc;
 
 
     # discord ignore version
