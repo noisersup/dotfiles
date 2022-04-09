@@ -27,10 +27,10 @@ color search black color10                              # search highlight
 
 # Statusbar Colors   ----------------------------------------------------------------
 color status color141 default
-color status color7 color8 '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
-color status color7 color8 '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
-color status color7 color8 '(\% )'                       # % symbol
-color status color7 color8 '(\S)'                        # empty spaces
+color status black color8 '([a-zA-Z0-9\.,]|\[|\])(\s)'  # bubble content 1
+color status black color8 '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
+color status black color8 '(\% )'                       # % symbol
+color status black color8 '(\S)'                        # empty spaces
 color status color8 default '(|)'                      # statusline "bubbles"
 color status color69 black '(\` )'                      # bubble account variation
 color status white color69 '([a-zA-Z0-9\.]+)( )'         # account text

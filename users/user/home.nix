@@ -167,7 +167,7 @@ in {
     ".config/awesome/bling".source = bling;
     ".config/awesome/awesome-wm-widgets".source = awesome-wm-widgets;
 
-    "~/.config/neomutt/styles.muttrc".source = ../../neomutt/styles.muttrc;
+    ".config/neomutt/styles.muttrc".source = ../../neomutt/styles.muttrc;
 
 
     # discord ignore version
