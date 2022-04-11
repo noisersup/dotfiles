@@ -51,7 +51,7 @@ awful.screen.connect_for_each_screen(function(s)
 	for i = 1, 9, 1
 	do
 	  awful.tag.add(i, {
-	     icon = gears.surface.load_from_shape(20,20,gears.shape.circle,"pink"),
+	     icon = gears.surface.load_from_shape(20,20,gears.shape.circle,tag_colors[i]),
 	     icon_only = true,
 	     layout = awful.layout.suit.tile,
 	     screen = s,
