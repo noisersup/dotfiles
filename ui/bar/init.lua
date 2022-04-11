@@ -1,5 +1,6 @@
 local gears = require("gears") -- Standard awesome library
 local awful = require("awful")
+local beautiful = require("beautiful")
 
 local wibox = require("wibox") -- Widget and layout library
 
@@ -53,14 +54,16 @@ awful.screen.connect_for_each_screen(function(s)
         buttons = taglist_buttons
     }
 
-    -- Create a tasklist widget
-    s.mytasklist = awful.widget.tasklist {
-        screen  = s,
-        filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
-    }
+    ---- Create a tasklist widget
+    --s.mytasklist = awful.widget.tasklist {
+    --    screen  = s,
+    --    filter  = awful.widget.tasklist.filter.currenttags,
+    --    buttons = tasklist_buttons
+    --}
 
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+	-- TODO: switch between top and left
+	-- TODO: hide wibar
+    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal .. "00"})
 	-- Add widgets to the wibox
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,

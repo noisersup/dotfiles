@@ -25,7 +25,7 @@ end)
 screen.connect_signal("property::geometry", awesome.restart)
 
 -- setup theme
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init("/home/user/.config/awesome/theme.lua")
 
 awful.layout.layouts = {
     awful.layout.suit.floating,

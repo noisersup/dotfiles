@@ -10,6 +10,9 @@ local naughty = require("naughty") -- Notification library
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
+dpi = beautiful.xresources.apply_dpi
+
+
 require("awful.hotkeys_popup.keys")
 
 -- Handle startup errors
