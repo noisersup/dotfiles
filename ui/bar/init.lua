@@ -51,7 +51,6 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytaglist = awful.widget.taglist {
         screen  = s,
         filter  = awful.widget.taglist.filter.all,
-		layout = wibox.layout.fixed.vertical,
         buttons = taglist_buttons,
 		widget_template = {
 			{
@@ -68,7 +67,7 @@ awful.screen.connect_for_each_screen(function(s)
 						id     = 'text_role',
 						widget = wibox.widget.textbox,
 					},
-					layout = wibox.layout.fixed.vertical,
+					layout = wibox.layout.fixed.horizontal,
 				},
 				widget = wibox.container.margin
 			},
@@ -86,10 +85,10 @@ awful.screen.connect_for_each_screen(function(s)
 
 	-- TODO: switch between top and left
 	-- TODO: hide wibar
-    s.mywibox = awful.wibar({ position = "left", screen = s, bg = beautiful.bg_normal .. "00"})
+    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal .. "00"})
 	-- Add widgets to the wibox
     s.mywibox:setup {
-        layout = wibox.layout.align.vertical,
+        layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
