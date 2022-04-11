@@ -13,7 +13,9 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 dpi = beautiful.xresources.apply_dpi
 
 --TODO: add all colors and move to theme
-tag_colors = {"#ff9678","#5398be", "#68bd4c", "#d2d747", "#ffffff", "#ffffff", "#ffffff", "#ffffff", "#ffffff"}
+--tag_colors = {"#957CCB", "#B86597", "#BF5F5F", "#ff9678","#5398be", "#6CC6B4", "#68bd4c", "#d2d747", "#FFC464"}
+tag_colors = {"#cc241d","#d79921","#98971a","#b16286","#458588","#a89984","#689d6a","#fabd2f","#d3869b"}
+--tag_colors = {"#ebebeb","#e0e0e0","#d6d6d6","#d2d2d2","#c2c2c2","#b3b3b3","#a3a3a3","#949494","#848484"}
 
 
 require("awful.hotkeys_popup.keys")
