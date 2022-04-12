@@ -20,6 +20,11 @@
 
   hardware.cpu.intel.updateMicrocode = true;
 
-  services.xserver.videoDrivers = [ "modesetting" ];
+  services.xserver.videoDrivers = [ "modesetting" "intel"];
   services.xserver.useGlamor = true;
+
+  services.xserver.deviceSection = ''
+    Option "DRI" "2"
+    Option "TearFree" "true"
+  '';
 }
