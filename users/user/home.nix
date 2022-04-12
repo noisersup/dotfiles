@@ -68,6 +68,11 @@ in {
     };
   };
 
+  programs.rofi = {
+    enable = true;
+    theme = "gruvbox-dark-soft";
+  };
+
   accounts.email.accounts = {
     "patryk@kwiatek.xyz" = {
       address = "patryk@kwiatek.xyz";

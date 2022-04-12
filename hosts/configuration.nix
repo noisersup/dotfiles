@@ -93,7 +93,6 @@ in {
     gnupg pinentry
 
     lukesmithxyz-st
-    rofi
     oh-my-zsh
     pure-prompt
     mono
@@ -117,7 +116,7 @@ in {
   # Services:
   services = {
     openssh.enable = true;
-    sshd.enable = true;
+    #sshd.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
   };
