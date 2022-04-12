@@ -65,6 +65,7 @@
         ];
       };
       nix250 = lib.nixosSystem {
+        specialArgs  = {inherit pkgs-govim;};
         inherit system;
 
         modules = [
@@ -72,6 +73,7 @@
           ./modules/laptop/hardware-configuration.nix
 	      nixos-hardware.nixosModules.lenovo-thinkpad-x250
           ./modules/laptop/default.nix
+          ./modules/animated-picom
         ];
       };
     };
