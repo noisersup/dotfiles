@@ -78,3 +78,6 @@ vim.o.background = "dark" -- or "light" for light mode
 vim.cmd([[colorscheme gruvbox]])
 
 require('nvim-autopairs').setup{}
+require('colorizer').setup()
+
+vim.cmd([[ColorizerAttachToBuffer]])

@@ -89,6 +89,7 @@ pkgs.neovim.override {
               nvim-autopairs
 
               dashboard-nvim
+              nvim-colorizer-lua
 
             ];
             # manually loadable by calling `:packadd $plugin-name`
