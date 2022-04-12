@@ -97,6 +97,7 @@ in {
     oh-my-zsh
     pure-prompt
     mono
+    unclutter
 
     xboxdrv
     linuxKernel.packages.linux_zen.xpadneo

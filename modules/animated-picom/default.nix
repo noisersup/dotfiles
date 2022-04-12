@@ -1,5 +1,4 @@
-{ pkgs ? import <nixpkgs> {} }:
-
+{ config, pkgs, ... }:
 let 
 picom = pkgs.stdenv.mkDerivation rec {
   name = "picom";
@@ -84,7 +83,6 @@ picom = pkgs.stdenv.mkDerivation rec {
     platforms = platforms.linux;
   };
 };
-in
-    pkgs.mkShell {
-        buildInputs = [ picom ];
-    }
+in{
+  environment.systemPackages = [ picom ];
+}

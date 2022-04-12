@@ -17,7 +17,6 @@ dpi = beautiful.xresources.apply_dpi
 tag_colors = {"#cc241d","#d79921","#98971a","#b16286","#458588","#a89984","#689d6a","#fabd2f","#d3869b"}
 --tag_colors = {"#ebebeb","#e0e0e0","#d6d6d6","#d2d2d2","#c2c2c2","#b3b3b3","#a3a3a3","#949494","#848484"}
 
-
 require("awful.hotkeys_popup.keys")
 
 -- Handle startup errors
@@ -42,14 +41,32 @@ do
     end)
 end
 
+Screen_width = awful.screen.focused().geometry.width
+Screen_height = awful.screen.focused().geometry.height
+
+
 Apps = {
 	launcher = "rofi -show drun",
 	terminal = "st",
 	editor = os.getenv("EDITOR") or "nvim"
 }
 
-Screen_width = awful.screen.focused().geometry.width
-Screen_height = awful.screen.focused().geometry.height
+local autostart = {
+	"picom --experimental-backend -b",
+	"flameshot",
+	"unclutter"
+}
+
+-- execute autorun apps
+for _, app in ipairs(autostart) do
+  local findme = app
+  local firstspace = app:find(" ")
+  if firstspace then
+    findme = app:sub(0, firstspace - 1)
+  end
+
+  awful.spawn.with_shell(string.format("echo 'pgrep -u $USER -x %s > /dev/null || (%s)' | bash -", findme, app), false)
+end
 
 require("configuration")
 require("ui")

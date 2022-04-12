@@ -61,6 +61,7 @@
           ./modules/k3s/default.nix
           ./modules/games
           ./modules/vm
+          ./modules/animated-picom
         ];
       };
       nix250 = lib.nixosSystem {
