@@ -48,7 +48,8 @@ Screen_height = awful.screen.focused().geometry.height
 Apps = {
 	launcher = "rofi -show drun",
 	terminal = "st",
-	editor = os.getenv("EDITOR") or "nvim"
+	editor = os.getenv("EDITOR") or "nvim",
+	screenshot = "flameshot gui"
 }
 
 local autostart = {

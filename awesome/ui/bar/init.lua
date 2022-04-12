@@ -86,19 +86,25 @@ awful.screen.connect_for_each_screen(function(s)
 	-- TODO: switch between top and left
 	-- TODO: hide wibar
     s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal .. "00"})
+
+	local systray = wibox.widget.systray()
+	systray:set_base_size(15)
+
 	-- Add widgets to the wibox
     s.mywibox:setup {
+		expand="none",
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
             s.mypromptbox,
         },
-        s.mytasklist, -- Middle widget
+        --s.mytasklist, -- Middle widget
+		require("widgets.calendar").create(s), --placeholder, I liked it!!
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            wibox.widget.systray(),
-            mytextclock,
+            systray,
+            --mytextclock,
             s.mylayoutbox,
         },
 	}
