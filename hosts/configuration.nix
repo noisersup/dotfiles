@@ -85,6 +85,8 @@ in {
     nodePackages.vue-language-server
     nodePackages.typescript-language-server
     nodePackages.typescript
+    nodePackages.pyright
+
     nodejs
     ripgrep xclip gcc 
 

@@ -113,6 +113,7 @@ pkgs.mkShell {
     pkgs.sumneko-lua-language-server
     pkgs.nodePackages.vscode-langservers-extracted
     pkgs.nodePackages.vue-language-server
+    pkgs.nodePackages.pyright
     #pkgs.nodePackages.typescript-language-server
     #pkgs.nodePackages.typescript
     pkgs.ripgrep

@@ -9,6 +9,8 @@ require'lspconfig'.tsserver.setup{}
 
 require'lspconfig'.ansiblels.setup{}
 
+require'lspconfig'.pyright.setup{}
+
 vim.o.completeopt = "menuone,noselect"
 
 -- set tab to accept autocompletion
