@@ -112,14 +112,47 @@ keys.globalkeys = gears.table.join(
 
 	awful.key({Mod}, "d", function()
 		awful.spawn(Apps.launcher)
-	end, {description = "open terminal", group="launcher"}),
+	end, {description = "open launcher", group="launcher"}),
 
 
 -- Function keys
 	awful.key({}, "Print", function()
 		awful.spawn(Apps.screenshot)
 	end, {description = "Take screenshot", group="launcher"}),
-	-- TODO: brightenss, alsa
+
+	-- Media keys
+
+	awful.key({}, "XF86AudioPlay", function()
+		awful.spawn("playerctl play-pause")
+	end, {description = "Play/Pause", group="launcher"}),
+
+	awful.key({}, "XF86AudioStop", function()
+		awful.spawn("playerctl stop")
+	end, {description = "Play/Pause", group="launcher"}),
+
+	awful.key({}, "XF86AudioNext", function()
+        awful.spawn("playerctl next", false)
+	end, {description = "Next song", group="launcher"}),
+
+	awful.key({}, "XF86AudioPrev", function()
+        awful.spawn("playerctl previous", false)
+	end, {description = "Prev song", group="launcher"}),
+
+	-- Volume
+
+	awful.key({}, "XF86AudioRaiseVolume", function()
+        awful.spawn("amixer sset Master 5%+", false)
+	end, {description = "volume up", group="launcher"}),
+
+	awful.key({}, "XF86AudioLowerVolume", function()
+        awful.spawn("amixer sset Master 5%-", false)
+	end, {description = "volume down", group="launcher"}),
+
+	awful.key({}, "XF86AudioMute", function()
+        awful.spawn("amixer sset Master 1+ toggle", false)
+	end, {description = "volume mute", group="launcher"}),
+
+	-- TODO: backlight
 
 -- Quit signals
 	awful.key({Mod,Shift}, "r", function()

@@ -101,6 +101,7 @@ in {
     discord-canary
     flameshot
     pavucontrol pulsemixer
+    playerctl
     
     onlyoffice-bin # office tool
 
@@ -113,6 +114,7 @@ in {
     mupdf
     filezilla
     krita 
+    xbindkeys
 
     comma
 
@@ -125,6 +127,9 @@ in {
     thefuck
 
     lsof
+    killall
+
+    zip unzip
 
     ansible
     vagrant
@@ -174,6 +179,13 @@ in {
 
     ".config/neomutt/styles.muttrc".source = ../../neomutt/styles.muttrc;
 
+    ".config/flameshot/flameshot.ini".text = '' 
+      [General]
+      contrastOpacity=188
+      contrastUiColor=#d3869b
+      drawColor=#ff0000
+      uiColor=#282828
+    '';
 
     # discord ignore version
     "industrial-society-and-its-future.tex".text = manifesto;
