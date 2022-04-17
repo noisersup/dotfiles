@@ -1,20 +1,21 @@
 { config, pkgs, pkgs-govim, ... }:
 
 let
-  unstable = import <nixos-unstable> {};
-in {
+  unstable = import <nixos-unstable> { };
+in
+{
   imports =
     [
     ];
 
   nix = {
-	package = pkgs.nixUnstable;
-	  extraOptions = ''
-	      experimental-features = nix-command flakes
-	  '';
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
   };
 
-  nixpkgs.config= {
+  nixpkgs.config = {
     allowBroken = true;
     allowUnfree = true;
   };
@@ -42,10 +43,10 @@ in {
 
     displayManager = {
       sddm.enable = true;
-      defaultSession= "none+awesome";
+      defaultSession = "none+awesome";
     };
-    windowManager.awesome={
-      enable=true;
+    windowManager.awesome = {
+      enable = true;
       luaModules = with pkgs.lua52Packages; [
         luarocks # package manager
         luadbi-mysql # databse abstraction layer
@@ -79,20 +80,33 @@ in {
   };
 
   environment.systemPackages = with pkgs; [
-    ( import ../nvim/nvim.nix {pkgs=pkgs-govim;} )
-    git go gopls fd tree-sitter rnix-lsp sumneko-lua-language-server
-    nodePackages.vscode-langservers-extracted nixpkgs-fmt lua
+    (import ../nvim/nvim.nix { pkgs = pkgs-govim; })
+    git
+    go
+    gopls
+    fd
+    tree-sitter
+    rnix-lsp
+    sumneko-lua-language-server
+    nodePackages.vscode-langservers-extracted
+    nixpkgs-fmt
+    lua
     nodePackages.vue-language-server
     nodePackages.typescript-language-server
     nodePackages.typescript
     nodePackages.pyright
+    nodePackages.yaml-language-server
 
     nodejs
-    ripgrep xclip gcc 
+    ripgrep
+    xclip
+    gcc
 
-    wget feh
+    wget
+    feh
 
-    gnupg pinentry
+    gnupg
+    pinentry
 
     lukesmithxyz-st
     oh-my-zsh
@@ -105,7 +119,7 @@ in {
     libnotify
   ];
 
-  
+
   fonts.fonts = with pkgs; [
     nerdfonts
     jetbrains-mono
@@ -122,7 +136,7 @@ in {
     onedrive.enable = true;
     pcscd.enable = true;
   };
-hardware.opengl.enable = true;
+  hardware.opengl.enable = true;
 
   virtualisation.docker = {
     enable = true;

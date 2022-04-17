@@ -10,73 +10,74 @@
     nixos-hardware.url = github:NixOS/nixos-hardware/master;
   };
 
-  outputs = { self, nixpkgs, nixpkgs-govim, home-manager, nixos-hardware, ... }: 
-  let
-    system = "x86_64-linux";
+  outputs = { self, nixpkgs, nixpkgs-govim, home-manager, nixos-hardware, ... }:
+    let
+      system = "x86_64-linux";
 
-    pkgs-govim = import nixpkgs-govim {
-      inherit system;
-      config = { allowUnfree = true; };
-    };
-
-    pkgs = import nixpkgs {
-      inherit system;
-      config = { allowUnfree = true; };
-    };
-
-    lib = nixpkgs.lib;
-  in {
-      homeConfigurations = {
-          "user@nixpc" = home-manager.lib.homeManagerConfiguration {
-            inherit system pkgs;
-            username = "user";
-            homeDirectory = "/home/user";
-            configuration = {
-                imports = [
-                    ./users/user/home.nix
-                    ./modules/home/minecraft/minecraft.nix
-                ];
-            };
-          };
-          "user@nix250" = home-manager.lib.homeManagerConfiguration {
-            inherit system pkgs;
-            username = "user";
-            homeDirectory = "/home/user";
-            configuration = {
-                imports = [
-                    ./users/user/home.nix
-                ];
-            };
-          };
-      };
-    nixosConfigurations = {
-      nixpc = lib.nixosSystem {
-        specialArgs  = {inherit pkgs-govim;};
-        inherit system pkgs ;
-        
-        modules = [
-          ./hosts/configuration.nix
-          ./modules/nixpc/hardware-configuration.nix
-          ./modules/nixpc/default.nix
-          ./modules/k3s/default.nix
-          ./modules/games
-          ./modules/vm
-          ./modules/animated-picom
-        ];
-      };
-      nix250 = lib.nixosSystem {
-        specialArgs  = {inherit pkgs-govim;};
+      pkgs-govim = import nixpkgs-govim {
         inherit system;
-
-        modules = [
-          ./hosts/configuration.nix
-          ./modules/laptop/hardware-configuration.nix
-	      nixos-hardware.nixosModules.lenovo-thinkpad-x250
-          ./modules/laptop/default.nix
-          ./modules/animated-picom
-        ];
+        config = { allowUnfree = true; };
       };
-    };
 
-  };
+      pkgs = import nixpkgs {
+        inherit system;
+        config = { allowUnfree = true; };
+      };
+
+      lib = nixpkgs.lib;
+    in
+    {
+      homeConfigurations = {
+        "user@nixpc" = home-manager.lib.homeManagerConfiguration {
+          inherit system pkgs;
+          username = "user";
+          homeDirectory = "/home/user";
+          configuration = {
+            imports = [
+              ./users/user/home.nix
+              ./modules/home/minecraft/minecraft.nix
+            ];
+          };
+        };
+        "user@nix250" = home-manager.lib.homeManagerConfiguration {
+          inherit system pkgs;
+          username = "user";
+          homeDirectory = "/home/user";
+          configuration = {
+            imports = [
+              ./users/user/home.nix
+            ];
+          };
+        };
+      };
+      nixosConfigurations = {
+        nixpc = lib.nixosSystem {
+          specialArgs = { inherit pkgs-govim; };
+          inherit system pkgs;
+
+          modules = [
+            ./hosts/configuration.nix
+            ./modules/nixpc/hardware-configuration.nix
+            ./modules/nixpc/default.nix
+            ./modules/minikube/default.nix
+            ./modules/games
+            ./modules/vm
+            ./modules/animated-picom
+          ];
+        };
+        nix250 = lib.nixosSystem {
+          specialArgs = { inherit pkgs-govim; };
+          inherit system;
+
+          modules = [
+            ./hosts/configuration.nix
+            ./modules/laptop/hardware-configuration.nix
+            nixos-hardware.nixosModules.lenovo-thinkpad-x250
+            ./modules/laptop/default.nix
+            ./modules/animated-picom
+          ];
+        };
+      };
+
+    };
 }
