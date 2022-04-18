@@ -131,8 +131,7 @@ in
 
   # Services:
   services = {
-    openssh.enable = true;
-    #sshd.enable = true;
+    #openssh.enable = true;
     onedrive.enable = true;
     pcscd.enable = true;
   };

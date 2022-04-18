@@ -41,6 +41,12 @@ in
   home.username = "user";
   home.homeDirectory = "/home/user";
 
+  xdg.mimeApps = { 
+    enable = true; 
+    associations.added = { "application/pdf" = ["mupdf.desktop"]; }; 
+    defaultApplications = { "application/pdf" = ["mupdf.desktop"]; }; 
+  };
+
   programs.home-manager.enable = true;
 
   programs.git = {
@@ -156,6 +162,7 @@ in
     initExtra = ''
       set ZSH_AUTOSUGGEST_USE_ASYNC
       ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+      less_termcap[md]="''${fg_bold[magenta]}"
 
       EDITOR=nvim
 
@@ -171,7 +178,7 @@ in
 
     oh-my-zsh = {
       enable = true;
-      plugins = [ "git" "emoji" "emoji-clock" "kubectl" "docker" "sudo" "history" /*"fzf"*/ ];
+      plugins = [ "git" "emoji" "emoji-clock" "kubectl" "docker" "sudo" "history" "colored-man-pages" /*"fzf"*/ ];
     };
   };
 
