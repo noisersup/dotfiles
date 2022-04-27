@@ -18,4 +18,6 @@
     Option         "AllowIndirectGLXProtocol" "off"
     Option         "TripleBuffer" "on"
   '';
+
+  hardware.ckb-next.enable = true;
 }

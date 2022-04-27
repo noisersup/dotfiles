@@ -55,7 +55,7 @@ Apps = {
 local autostart = {
 	"picom --experimental-backend -b",
 	"flameshot",
-	"unclutter"
+	"unclutter",
 }
 
 -- execute autorun apps

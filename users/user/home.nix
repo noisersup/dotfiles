@@ -36,6 +36,9 @@ let
       rev = "fb39f47b304b94aab604ec8db5bc412e6e55d040";
       sha256 = "IKNtbyyYCBCjvXmNdVmB/DFfKRkFW5T3g9ZOGLp0yDg=";
     } + "/Manifesto.tex");
+
+  mupdf-x11 = pkgs.mupdf.override(old: { enableGL = false; enableX11 = true; });
+
 in
 {
   home.username = "user";
@@ -114,8 +117,10 @@ in
     playerctl
 
     onlyoffice-bin # office tool
+    mupdf-x11
 
     keepassxc
+    freeplane
 
     tree
     neofetch
@@ -125,7 +130,6 @@ in
     signal-desktop
     lf
     gnumake
-    mupdf
     filezilla
     krita
     xbindkeys
