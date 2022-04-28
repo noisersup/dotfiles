@@ -44,6 +44,8 @@
           username = "user";
           homeDirectory = "/home/user";
           configuration = {
+            services.picom.enable = true;
+            services.picom.vSync = true;
             imports = [
               ./users/user/home.nix
             ];
