@@ -147,6 +147,7 @@ in
 
     lsof
     killall
+    glow
 
     zip
     unzip

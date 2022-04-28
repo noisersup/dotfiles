@@ -87,6 +87,8 @@ pkgs.neovim.override {
 
         nvim-ts-autotag
         nvim-autopairs
+        markdown-preview-nvim
+        vim-table-mode
 
         dashboard-nvim
         nvim-colorizer-lua
