@@ -44,6 +44,15 @@ in
   home.username = "user";
   home.homeDirectory = "/home/user";
 
+  gtk = {
+    enable = true;
+    font.name = "Victor Mono SemiBold 12";
+    theme = {
+      name = "Materia-dark";
+      package = pkgs.materia-theme;
+    };
+  };
+
   xdg.mimeApps = { 
     enable = true; 
     associations.added = { "application/pdf" = ["mupdf.desktop"]; }; 
@@ -121,6 +130,7 @@ in
 
     keepassxc
     freeplane
+    man-pages
 
     tree
     neofetch
@@ -141,6 +151,7 @@ in
 
     kubectl
     postman
+    taskwarrior
 
     pure-prompt
     thefuck
