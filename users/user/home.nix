@@ -124,6 +124,7 @@ in
     pavucontrol
     pulsemixer
     playerctl
+    libreoffice
 
     onlyoffice-bin # office tool
     mupdf-x11
@@ -143,7 +144,9 @@ in
     filezilla
     krita
     xbindkeys
+    cfssl
 
+    obs-studio
     comma
 
     mpv
@@ -152,6 +155,9 @@ in
     kubectl
     postman
     taskwarrior
+    vit
+    yt-dlp
+    ffmpeg
 
     pure-prompt
     thefuck

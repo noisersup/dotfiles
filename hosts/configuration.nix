@@ -69,7 +69,10 @@ in
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  boot.extraModprobeConfig = '' options bluetooth disable_ertm=1 '';
+  boot.extraModprobeConfig = '' 
+    options bluetooth disable_ertm=1 
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"i
+  '';
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
@@ -79,10 +82,14 @@ in
     initialPassword = "leduchosky";
   };
 
+  environment.etc."vbox/networks.conf".text = ''
+    * 192.168.0.0/16
+  '';
+
   environment.systemPackages = with pkgs; [
     (import ../nvim/nvim.nix { pkgs = pkgs-govim; })
     git
-    go
+    go_1_18
     gopls
     fd
     tree-sitter
@@ -149,6 +156,8 @@ in
     enableSSHSupport = true;
     pinentryFlavor = "curses";
   };
+
+  services.teamviewer.enable = true;
 
   networking.firewall.enable = false;
   networking.firewall.allowedTCPPorts = [ ];
