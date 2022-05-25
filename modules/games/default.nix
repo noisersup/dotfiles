@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-govim, ... }:
 {
   programs.steam.enable = true;
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (pkgs.lib.getName pkg) [
@@ -7,7 +7,7 @@
     "steam-runtime"
   ];
   environment.systemPackages = with pkgs; [
-    factorio
+    pkgs-govim.factorio
   ];
 
 }
