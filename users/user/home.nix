@@ -117,6 +117,7 @@ in
   };
 
   home.packages = with pkgs; [
+    (import ../../blurlock { pkgs = pkgs; })
     spotify
     qutebrowser
     discord-canary

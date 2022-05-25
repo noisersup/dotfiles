@@ -49,11 +49,18 @@ Apps = {
 	launcher = "rofi -show drun",
 	terminal = "st",
 	editor = os.getenv("EDITOR") or "nvim",
-	screenshot = "flameshot gui"
+	screenshot = "flameshot gui",
+	lock = "blurlock"
 }
 
 local autostart = {
 	"picom --experimental-backend -b",
+
+	-- TODO: move these only on nixpc
+	"ckb-next -b",
+	"xrandr --output DP-4 --mode \"1920x1080\" --rate 120",
+	--
+
 	"flameshot",
 	"unclutter",
 }

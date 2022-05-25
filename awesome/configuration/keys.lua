@@ -120,6 +120,11 @@ keys.globalkeys = gears.table.join(
 		awful.spawn(Apps.screenshot)
 	end, {description = "Take screenshot", group="launcher"}),
 
+	awful.key({Mod}, "F4", function()
+		awful.spawn(Apps.lock)
+	end, {description = "Lock screen", group="launcher"}),
+
+
 	-- Media keys
 
 	awful.key({}, "XF86AudioPlay", function()
