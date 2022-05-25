@@ -237,6 +237,9 @@ in
     #    recursive = true; 
     #    source = qute-dracula;
     #};
+
+    ".config/qutebrowser/greasemonkey".source = ../../greasemonkey;
+
     ".config/qutebrowser/config.py".text = ''
       #import dracula.draw
       config.load_autoconfig(False)
