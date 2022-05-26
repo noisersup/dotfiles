@@ -11,8 +11,8 @@ set compose_format="-- NeoMutt: Compose  [Approx. msg size: %l   Atts: %a]%>-"
 # set vfolder_format = "%N %?n?%3n&   ?  %8m  · %f"
 set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
 set sidebar_format = '%D%?Z? [%Z]?%* %?S?%S?'
-index-format-hook attachment_info '=B text/calendar ~X 1' ' '
-index-format-hook attachment_info '=B text/calendar' "  "
+#index-format-hook attachment_info '=B text/calendar ~X 1' ' '
+#index-format-hook attachment_info '=B text/calendar' "  "
 index-format-hook attachment_info '~X 1' "  "
 index-format-hook attachment_info '~A' "   "
 
@@ -32,7 +32,7 @@ color status black color8 '(\s)([a-zA-Z0-9\.,]|\[|\])'  # bubble content 2
 color status black color8 '(\% )'                       # % symbol
 color status black color8 '(\S)'                        # empty spaces
 color status color8 default '(|)'                      # statusline "bubbles"
-color status color69 black '(\` )'                      # bubble account variation
+color status color69 default '(\` )'                      # bubble account variation
 color status white color69 '([a-zA-Z0-9\.]+)( )'         # account text
 color status green color8 ''                            # Unread messages count
 color status blue color8 ''                             # Read messages count icon
@@ -41,11 +41,10 @@ color status red color8 ''                              # Pending delete icon
 
 
 # Index Colors   --------------------------------------------------------------------
-color index color15 default '~N'                # new messages
-color index color8 default '~R'                 # read messages
 color index color8 default '~Q'                 # messages which have been replied to
 color index_collapsed color4 default            # collapsed thread (message count text)
 color index color5 default '!~Q^~p'             # sent only to me and haven't been replied to
+color index color8 default '~R'                 # read messages
 color index color22 default '~h X-Label..'     # messages with a complete label
 color index color6 default '~F'                 # flagged messages
 color index color6 default '~F~N'               # flagged messages (new)
@@ -56,8 +55,11 @@ color index color9 default '~D~R'               # deleted messages (read)
 color index color3 default '~T'                 # tagged messages
 color index color3 default '~T~N'               # tagged messages (new)
 color index color11 default '~T~R'              # tagged messages (read)
-color tree  color8 color8                       # thread tree lines/arrow
-color indicator default color8                  # selection indicator
+color tree  color8 default # thread tree lines/arrow
+
+color index color15 color5 '~N'                # new messages
+
+color indicator black color8                  # selection indicator
 color index_date color8 default                 # date is always the same colour
 color index_label color6 default                # label is always the same colour
 

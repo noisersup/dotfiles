@@ -75,10 +75,11 @@ in
     enable = true;
     vimKeys = true;
 
-    extraConfig = "
-        #### Colors, Symbols and Formatting
-        source ~/.config/neomutt/styles.muttrc
-    ";
+    extraConfig = ''
+      #### Colors, Symbols and Formatting
+      source ~/.config/neomutt/styles.muttrc
+      macro index,pager A "<save-message>=Archives<enter><enter>" "Archive Message"
+    '';
   };
   programs.mbsync.enable = true;
   programs.msmtp.enable = true;
