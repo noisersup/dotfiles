@@ -125,6 +125,7 @@ in
     flameshot
     pavucontrol
     pulsemixer
+    dconf
     playerctl
     libreoffice
 
