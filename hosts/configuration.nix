@@ -87,7 +87,7 @@ in
   '';
 
   environment.systemPackages = with pkgs; [
-    (import ../nvim/nvim.nix { pkgs = pkgs-govim; })
+    (import ../nvim/nvim.nix { pkgs = pkgs; })
     git
     go_1_18
     gopls

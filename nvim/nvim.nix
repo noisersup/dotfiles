@@ -72,6 +72,7 @@ pkgs.neovim.override {
         indentLine
 
         nvim-treesitter
+        nvim-ts-rainbow
         gruvbox-nvim
         lush-nvim
         bufferline-nvim

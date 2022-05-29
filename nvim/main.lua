@@ -18,6 +18,7 @@ local function map(mode, combo, mapping, opts)
     vim.api.nvim_set_keymap(mode,combo,mapping,options)
 end
 
+g.go_code_completion_enabled = 0
 g.go_def_mode='gopls'
 g.go_info_mode='gopls'
 g.go_fmt_command = "goimports"

@@ -72,6 +72,7 @@ let
           indentLine
 
           nvim-treesitter
+          nvim-ts-rainbow
           gruvbox-nvim
           lush-nvim
           bufferline-nvim
