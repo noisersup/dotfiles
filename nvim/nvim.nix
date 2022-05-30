@@ -73,6 +73,7 @@ pkgs.neovim.override {
 
         nvim-treesitter
         nvim-ts-rainbow
+        vim-matchup
         gruvbox-nvim
         lush-nvim
         bufferline-nvim
