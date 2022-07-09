@@ -12,7 +12,7 @@ naughty.config.defaults.shape = function(cr, w, h)
 end
 
 naughty.config.defaults.margin = dpi(16)
-naughty.config.defaults.screen = awful.screen.focused()
+naughty.config.defaults.screen = awful.screen.primary
 naughty.config.defaults.timeout = 3
 
 naughty.config.padding = dpi(7)

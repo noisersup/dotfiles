@@ -103,6 +103,7 @@ in
     nodePackages.typescript
     nodePackages.pyright
     nodePackages.yaml-language-server
+    omnisharp-roslyn
 
     nodejs
     ripgrep
@@ -114,6 +115,7 @@ in
 
     gnupg
     pinentry
+    teamviewer
 
     lukesmithxyz-st
     oh-my-zsh
@@ -160,8 +162,8 @@ in
   services.teamviewer.enable = true;
 
   networking.firewall.enable = false;
-  networking.firewall.allowedTCPPorts = [ ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  #networking.firewall.allowedTCPPorts = [ 42421 34209];
+  #networking.firewall.allowedUDPPorts = [ 42421 4445 ];
 
   system.stateVersion = "21.11";
 

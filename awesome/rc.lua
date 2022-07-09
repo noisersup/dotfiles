@@ -41,6 +41,9 @@ do
     end)
 end
 
+client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
+client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+
 Screen_width = awful.screen.focused().geometry.width
 Screen_height = awful.screen.focused().geometry.height
 
@@ -58,7 +61,7 @@ local autostart = {
 
 	-- TODO: move these only on nixpc
 	"ckb-next -b",
-	"xrandr --output DP-4 --mode \"1920x1080\" --rate 120",
+	--"xrandr --output DP-4 --mode \"1920x1080\" --rate 120",
 	--
 
 	"flameshot",
