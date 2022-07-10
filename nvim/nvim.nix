@@ -48,7 +48,6 @@ pkgs.neovim.override {
   vimAlias = true;
   configure = {
     customRC = ''
-      "let g:OmniSharp_server_path = '${pkgs.omnisharp-roslyn}/bin/omnisharp'
       luafile ${./required.lua}
       au Bufenter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "" | set laststatus=0 | else | set laststatus=2 | endif
       lua << EOF
@@ -72,7 +71,6 @@ pkgs.neovim.override {
       start = [
         vim-go
         vim-nix
-        omnisharp-vim
 
         #neorg
 

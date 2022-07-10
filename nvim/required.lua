@@ -10,7 +10,6 @@ vim.g.dashboard_custom_header = {
 }
 
 vim.g.OmniSharp_log_dir = "/home/user/.omnisharp"
-vim.g.OmniSharp_server_path = "/nix/store/f5s3zhz8b2a8a7yhbzr5nzf0pq93lb5m-omnisharp-roslyn-1.38.2/bin/omnisharp"
 local chadtree_settings = {
 	["xdg"] = true,
 	["view.width"] = 25,

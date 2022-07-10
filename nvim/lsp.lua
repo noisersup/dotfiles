@@ -19,7 +19,9 @@ require'lspconfig'.yamlls.setup{
 }
 
 require'lspconfig'.omnisharp.setup{
-	cmd = {"/nix/store/f5s3zhz8b2a8a7yhbzr5nzf0pq93lb5m-omnisharp-roslyn-1.38.2/bin/omnisharp","--languageserver","--hostPID",tostring(vim.fn.getpid())}
+	cmd = {"/home/user/.vscode/extensions/ms-dotnettools.csharp/.omnisharp/1.37.16/run","--languageserver","--hostPID",tostring(vim.fn.getpid())};
+	root_dir = require'lspconfig'.util.root_pattern("*.csproj","*.sln");
+
 }
 
 require'lspconfig'.pyright.setup{}

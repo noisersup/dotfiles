@@ -138,7 +138,7 @@ in
 
     unityhub
     dotnet-sdk
-    msbuild
+    #msbuild
 
     keepassxc
     freeplane
