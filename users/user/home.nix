@@ -199,6 +199,7 @@ in
     extensions = with pkgs.vscode-extensions; [
       ms-dotnettools.csharp
       golang.go
+      vscodevim.vim
       ms-vsliveshare.vsliveshare
     ];
   };
