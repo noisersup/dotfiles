@@ -29,27 +29,21 @@
     {
       homeConfigurations = {
         "user@nixpc" = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "user";
-          homeDirectory = "/home/user";
-          configuration = {
-            imports = [
-              ./users/user/home.nix
-              ./modules/home/minecraft/minecraft.nix
-            ];
-          };
+          inherit pkgs;
+          modules = [
+            ./users/user/home.nix
+            ./modules/home/minecraft/minecraft.nix
+          ];
         };
         "user@nix250" = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
-          username = "user";
-          homeDirectory = "/home/user";
-          configuration = {
-            services.picom.enable = true;
-            services.picom.vSync = true;
-            imports = [
-              ./users/user/home.nix
-            ];
-          };
+          inherit pkgs;
+          modules = [
+            ./users/user/home.nix
+            {
+              services.picom.enable = true;
+              services.picom.vSync = true;
+            }
+          ];
         };
       };
       nixosConfigurations = {
