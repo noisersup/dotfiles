@@ -17,8 +17,6 @@
     Option "TearFree" "true"
   '';
 
-
-
-
   services.fwupd.enable = true;
+
 }

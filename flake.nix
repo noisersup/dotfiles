@@ -42,6 +42,10 @@
             {
               services.picom.enable = true;
               services.picom.vSync = true;
+
+              home.packages = with pkgs; [
+                brightnessctl
+              ];
             }
           ];
         };
@@ -53,6 +57,10 @@
             {
               services.picom.enable = true;
               services.picom.vSync = true;
+
+              home.packages = with pkgs; [
+                brightnessctl
+              ];
             }
           ];
         };

@@ -17,7 +17,6 @@
     mouse.accelSpeed = "-0.6";
   };
 
-
   hardware.cpu.intel.updateMicrocode = true;
 
   services.xserver.videoDrivers = [ "modesetting" "intel" ];

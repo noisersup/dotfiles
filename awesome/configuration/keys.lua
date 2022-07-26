@@ -157,7 +157,14 @@ keys.globalkeys = gears.table.join(
         awful.spawn("amixer sset Master 1+ toggle", false)
 	end, {description = "volume mute", group="launcher"}),
 
-	-- TODO: backlight
+	-- Brightness
+	awful.key({},"XF86MonBrightnessUp", function()
+		awful.spawn("brightnessctl s +2%",false)
+	end,{description = "brightness up", group="launcher"}),
+
+	awful.key({},"XF86MonBrightnessDown", function()
+		awful.spawn("brightnessctl s 2%-",false)
+	end,{description = "brightness down", group="launcher"}),
 
 -- Quit signals
 	awful.key({Mod,Shift}, "r", function()
