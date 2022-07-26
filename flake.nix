@@ -45,6 +45,17 @@
             }
           ];
         };
+        "user@framework" = home-manager.lib.homeManagerConfiguration {
+          inherit pkgs;
+          modules = [
+            ./users/user/home.nix
+            ./modules/home/minecraft/minecraft.nix
+            {
+              services.picom.enable = true;
+              services.picom.vSync = true;
+            }
+          ];
+        };
       };
       nixosConfigurations = {
         nixpc = lib.nixosSystem {
@@ -73,6 +84,18 @@
             ./modules/animated-picom
           ];
         };
+	framework = lib.nixosSystem {
+	  specialArgs = { inherit pkgs-govim; };
+	  inherit system;
+	  
+	  modules = [
+            ./hosts/configuration.nix
+            ./modules/framework/hardware-configuration.nix
+            nixos-hardware.nixosModules.framework
+            ./modules/framework/default.nix
+            ./modules/animated-picom
+	  ];
+	};
       };
 
     };

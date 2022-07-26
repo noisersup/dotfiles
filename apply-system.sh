@@ -1,4 +1,5 @@
 #!/bin/sh
 pushd ~/.dotfiles/
-nixos-rebuild switch --use-remote-sudo --flake .#
+sudo nixos-rebuild switch --flake .#
+#nixos-rebuild switch --use-remote-sudo --flake .#
 popd
