@@ -18,5 +18,4 @@
   '';
 
   services.fwupd.enable = true;
-
 }
