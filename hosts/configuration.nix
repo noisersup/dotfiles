@@ -161,7 +161,7 @@ in
 
   services.teamviewer.enable = true;
 
-  networking.firewall.enable = false;
+  networking.firewall.enable = true;
   #networking.firewall.allowedTCPPorts = [ 42421 34209];
   #networking.firewall.allowedUDPPorts = [ 42421 4445 ];
 

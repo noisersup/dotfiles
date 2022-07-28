@@ -23,6 +23,13 @@ g.go_def_mode='gopls'
 g.go_info_mode='gopls'
 g.go_fmt_command = "goimports"
 
+g.go_highlight_operators = 1
+g.go_highlight_functions = 1
+g.go_highlight_function_parameters = 1
+g.go_highlight_function_calls = 1
+g.go_highlight_types = 1
+g.go_highlight_fields = 1
+-- TODO: add more highlight support
 
 
 map('n', '<C-b>', ':CHADopen <CR>', {noremap=true})
