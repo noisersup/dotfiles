@@ -60,6 +60,7 @@
 
               home.packages = with pkgs; [
                 brightnessctl
+                jetbrains.goland
               ];
             }
           ];
@@ -99,6 +100,7 @@
           modules = [
                 ./hosts/configuration.nix
                 ./modules/framework/hardware-configuration.nix
+                ./modules/games
                 nixos-hardware.nixosModules.framework
                 ./modules/framework/default.nix
                 ./modules/animated-picom

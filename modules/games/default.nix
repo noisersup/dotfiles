@@ -6,9 +6,9 @@
     "steam-original"
     "steam-runtime"
   ];
-  environment.systemPackages = with pkgs; [
-    pkgs-govim.factorio
-  ];
+  #environment.systemPackages = with pkgs; [
+  #  pkgs-govim.factorio
+  #];
 
 }
 

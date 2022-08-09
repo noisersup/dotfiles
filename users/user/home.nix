@@ -126,7 +126,6 @@ in
     #(import ../../mail-deduplicate { pkgs = pkgs; })
     spotify
     qutebrowser
-    chromium
     discord-canary
     flameshot
     pavucontrol
