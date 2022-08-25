@@ -144,7 +144,7 @@ in
     onedrive.enable = true;
     pcscd.enable = true;
   };
-  hardware.opengl.enable = true;
+  #hardware.opengl.enable = true;
 
   virtualisation.docker = {
     enable = true;
@@ -164,6 +164,26 @@ in
   networking.firewall.enable = false;
   #networking.firewall.allowedTCPPorts = [ 42421 34209];
   #networking.firewall.allowedUDPPorts = [ 42421 4445 ];
+
+ nixpkgs.config.packageOverrides = pkgs: {
+    vaapiIntel = pkgs.vaapiIntel.override { enableHybridCodec = true; };
+  };
+
+hardware.opengl = {
+    enable = true;
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+      intel-compute-runtime # OpenCL filter support (hardware tonemapping and subtitle burn-in)
+    ];
+  };
+  #services.jellyfin = { 
+  #  enable = true;
+  #  user = "user";
+  #  openFirewall = true;
+  #};
 
   system.stateVersion = "21.11";
 

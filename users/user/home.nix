@@ -217,6 +217,7 @@ in
 
       autoload -U promptinit; promptinit
       prompt pure
+      bindkey -v
       PATH=~/.npm-global/bin:$PATH
     '';
     history = {
