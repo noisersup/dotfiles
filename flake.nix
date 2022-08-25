@@ -60,7 +60,6 @@
 
               home.packages = with pkgs; [
                 brightnessctl
-                jetbrains.goland
               ];
             }
           ];
