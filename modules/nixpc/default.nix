@@ -20,4 +20,7 @@
   '';
 
   hardware.ckb-next.enable = true;
+
+  boot.kernelParams = [ "zfs.zfs_arc_max=0" ];
+  #boot.kernelParams = [ "zfs.zfs_arc_max=4000000000" ];
 }

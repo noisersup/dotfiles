@@ -193,6 +193,9 @@ in
     python38Packages.virtualenv
 
     jq # json prettier
+
+    monero-cli
+    ssh-copy-id
   ];
   #TODO: redshift-gammastep
 

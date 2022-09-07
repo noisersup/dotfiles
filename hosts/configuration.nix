@@ -27,12 +27,25 @@ in
   #boot.loader.systemd-boot.enable = true;
   #boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.zfs.latestCompatibleLinuxPackages;
 
   # The global useDHCP flag is deprecated, therefore explicitly set to false here.
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = false;
+
+  networking.extraHosts =
+  ''
+    192.168.0.125 giratina
+    192.168.0.125 jellyfin.giratina
+    192.168.0.125 transmission.giratina
+    192.168.0.125 sonarr.giratina
+    192.168.0.125 radarr.giratina
+    192.168.0.125 bazarr.giratina
+    192.168.0.125 lidarr.giratina
+    192.168.0.125 jackett.giratina
+    192.168.0.125 nextcloud.giratina
+  '';
 
   time.timeZone = "Europe/Warsaw";
 
@@ -159,7 +172,9 @@ in
     pinentryFlavor = "curses";
   };
 
-  services.teamviewer.enable = true;
+  #services.teamviewer.enable = true;
+
+  #services.monero.enable = true;
 
   networking.firewall.enable = false;
   #networking.firewall.allowedTCPPorts = [ 42421 34209];
@@ -186,5 +201,4 @@ hardware.opengl = {
   #};
 
   system.stateVersion = "21.11";
-
 }
