@@ -85,7 +85,7 @@ awful.screen.connect_for_each_screen(function(s)
 
 	-- TODO: switch between top and left
 	-- TODO: hide wibar
-    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal .. "00"})
+    s.mywibox = awful.wibar({ position = "top", screen = s, bg = beautiful.bg_normal .. "00", height = dpi(15)})
 
 	local systray = wibox.widget.systray()
 	systray:set_base_size(15)
