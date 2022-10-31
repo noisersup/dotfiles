@@ -5,6 +5,7 @@
     "steam"
     "steam-original"
     "steam-runtime"
+    "heroic"
   ];
   #environment.systemPackages = with pkgs; [
   #  pkgs-govim.factorio

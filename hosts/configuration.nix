@@ -55,6 +55,7 @@ in
     192.168.0.125 jackett.giratina
     192.168.0.125 nextcloud.giratina
     192.168.0.125 cock.giratina
+    192.168.0.125 grocy.giratina
   '';
 
   time.timeZone = "Europe/Warsaw";
@@ -84,6 +85,15 @@ in
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.printing.drivers = [
+    pkgs.cups-kyocera-ecosys-m552x-p502x
+  ];
+
+  hardware.sane.enable = true;
+  services.avahi.enable = true;
+  services.avahi.nssmdns = true;
+
+  hardware.sane.extraBackends = [ pkgs.sane-airscan ];
 
   # Enable sound.
   sound.enable = true;
@@ -100,7 +110,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.user = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "video" "libvirtd" "usb" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "video" "libvirtd" "usb" "docker" "scanner" "adbusers"]; # Enable ‘sudo’ for the user.
     shell = pkgs.zsh;
     initialPassword = "leduchosky";
   };
@@ -149,6 +159,9 @@ in
     xboxdrv
     linuxKernel.packages.linux_zen.xpadneo
     libnotify
+
+    xsane
+    simple-scan
   ];
 
 
@@ -173,6 +186,8 @@ in
     enable = true;
     storageDriver = "zfs";
   };
+
+  programs.adb.enable = true;
 
 
   #GPG

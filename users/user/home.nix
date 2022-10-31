@@ -124,6 +124,9 @@ in
   home.packages = with pkgs; [
     (import ../../blurlock { pkgs = pkgs; })
     #(import ../../mail-deduplicate { pkgs = pkgs; })
+    heroic
+    lutris
+
     jetbrains.goland
     spotify
     qutebrowser

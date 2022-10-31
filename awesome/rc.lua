@@ -66,6 +66,7 @@ local autostart = {
 
 	"flameshot",
 	"unclutter",
+	"qutebrowser nc.kwiatek.xyz/apps/calendar",
 }
 
 -- execute autorun apps
