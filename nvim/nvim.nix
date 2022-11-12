@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, go-pkgs, ... }:
 
 let
   customGalaxyline-nvim = pkgs.vimUtils.buildVimPlugin {
@@ -90,8 +90,18 @@ pkgs.neovim.override {
         customChadtree
         indentLine
 
+        #(nvim-treesitter.withPlugins (plugins: [
+        #  plugins.tree-sitter-bash
+        #]))
 
-        nvim-treesitter
+        #(go-pkgs.vimPlugins.nvim-treesitter.withPlugins (_: go-pkgs.tree-sitter.allGrammars))
+
+          #(nvim-treesitter.withPlugins (plugins: [
+          #  plugins.tree-sitter-bash
+          #]))
+
+
+        nvim-treesitter 
         nvim-ts-rainbow
         gruvbox-nvim
         lush-nvim

@@ -3,6 +3,7 @@
   imports =
     [
       ../dualboot/default.nix
+      ../flutter/flutter.nix
     ];
 
   networking.hostId = "d5b2cfa0";

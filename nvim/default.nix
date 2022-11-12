@@ -1,4 +1,4 @@
-{ pkgs ? import (fetchTarball https://github.com/nixos/nixpkgs/archive/nixpkgs-unstable.tar.gz) { } }:
+{ go-pkgs, pkgs ? import (fetchTarball https://github.com/nixos/nixpkgs/archive/nixpkgs-unstable.tar.gz){ } }:
 
 let
   customGalaxyline-nvim = pkgs.vimUtils.buildVimPlugin {
@@ -71,7 +71,8 @@ let
           chadtree
           indentLine
 
-          nvim-treesitter
+
+          #nvim-treesitter
           nvim-ts-rainbow
           gruvbox-nvim
           lush-nvim
