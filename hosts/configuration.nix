@@ -89,7 +89,7 @@ in
   environment.systemPackages = with pkgs; [
     (import ../nvim/nvim.nix { pkgs = pkgs; })
     git
-    go_1_18
+    go_1_19
     gopls
     fd
     tree-sitter
@@ -161,7 +161,7 @@ in
 
   services.teamviewer.enable = true;
 
-  networking.firewall.enable = false;
+  #networking.firewall.enable = false;
   #networking.firewall.allowedTCPPorts = [ 42421 34209];
   #networking.firewall.allowedUDPPorts = [ 42421 4445 ];
 

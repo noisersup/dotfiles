@@ -26,4 +26,5 @@
     Option "DRI" "2"
     Option "TearFree" "true"
   '';
+
 }
