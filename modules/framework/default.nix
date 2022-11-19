@@ -1,5 +1,9 @@
 { config, pkgs, ...}:
 {
+  imports = [
+    ../flutter/flutter.nix
+  ];
+
   networking.hostId = "c63405cd";
   networking.hostName = "framework";
   networking.networkmanager.enable = true;

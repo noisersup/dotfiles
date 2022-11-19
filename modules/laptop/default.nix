@@ -1,6 +1,5 @@
 { config, pkgs, ... }:
 {
-
   networking.hostId = "46d47539";
   networking.hostName = "nix250";
   networking.networkmanager.enable = true;
